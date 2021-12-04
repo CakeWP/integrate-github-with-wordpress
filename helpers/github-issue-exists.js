@@ -14,7 +14,8 @@ async function issueAlreadyExists(octokit, query, owner, repo) {
 
     return result.data.total_count !== 0 ? true : false;
   } catch (error) {
-    return false;
+    console.error(error);
+    return true;
   }
 }
 

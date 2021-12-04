@@ -26,7 +26,7 @@ async function main() {
     const pluginSlug = core.getInput("plugin-slug");
     const possibleAssignees = core.getInput("random-assignees");
 
-    const repo = github.context.repo;
+    const repo = core.getInput("repo-name");
     const owner = "CakeWP"; // TODO: currently hardcoded.
     const octokit = github.getOctokit(token);
 
@@ -45,7 +45,12 @@ async function main() {
     // Creating a new issue for each unresolved support.
     for (const support of unresolvedSupports) {
       const issueTitle = "WordPress Suppport: " + support.title;
-      const issueExists = await issueAlreadyExists(issueTitle);
+      const issueExists = await issueAlreadyExists(
+        octokit,
+        issueTitle,
+        owner,
+        repo
+      );
 
       if (issueExists) {
         continue;
@@ -66,6 +71,7 @@ async function main() {
       });
     }
   } catch (error) {
+    console.error(error);
     core.setFailed(error.message);
   }
 }

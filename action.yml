@@ -10,6 +10,9 @@ inputs:
   random-assignees:
     description: "Created issues will be assigned to these assignees randomly (Please enter comma separated user names)"
     required: true
+  repo-name:
+    description: "Current repository slug"
+    required: true
 outputs:
   status:
     description: "Status"
