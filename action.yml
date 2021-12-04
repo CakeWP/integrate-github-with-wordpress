@@ -7,9 +7,12 @@ inputs:
   github-token:
     description: "Github Token"
     required: true
+  random-assignees:
+    description: "Created issues will be assigned to these assignees randomly (Please enter comma separated user names)"
+    required: true
 outputs:
-  time:
-    description: "The time we greeted you"
+  status:
+    description: "Status"
 runs:
   using: "node12"
   main: "index.js"
