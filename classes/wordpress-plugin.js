@@ -2,7 +2,7 @@ const axios = require("axios").default;
 const { parse } = require("node-html-parser");
 const { isEmpty } = require("lodash");
 const TurndownService = require("turndown");
-const { encode } = require("html-entities");
+const { decode } = require("html-entities");
 
 /**
  * This class is responsible for fetching all the plugin details.
@@ -56,7 +56,7 @@ class WordPressPlugin {
     // Leaving only relevant data.
     unResolvedtopics = unResolvedtopics.map((node) => {
       return {
-        title: encode(node.querySelector(".bbp-topic-permalink").innerText),
+        title: decode(node.querySelector(".bbp-topic-permalink").innerText),
         createdAt: node.querySelector(".bbp-topic-freshness a").innerText,
         createdBy: node.querySelector(".bbp-author-name").innerText,
         supportLink: node
