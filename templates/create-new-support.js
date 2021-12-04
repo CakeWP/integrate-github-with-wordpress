@@ -10,6 +10,7 @@ module.exports = function createNewSupport(support, details) {
   ## Details
   - **Support Author**: ${support.createdBy}
   - **Support Link**: ${support.supportLink}
+  - **Support Created At**: ${support.createdAt}
   
   **Note:** This support issue is created automatically via GitHub action.`;
 };

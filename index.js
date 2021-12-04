@@ -44,7 +44,7 @@ async function main() {
 
     // Creating a new issue for each unresolved support.
     for (const support of unresolvedSupports) {
-      const issueTitle = "WordPress Suppport: " + support.title;
+      const issueTitle = support.title + " - WordPress Support";
       const issueExists = await issueAlreadyExists(
         octokit,
         issueTitle,
