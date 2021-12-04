@@ -67,7 +67,7 @@ async function main() {
         labels: ["wordpress-support", "needs-testing"],
         repo,
         assignee: getRandomAssignee(possibleAssignees),
-        body: getSupportTemplate(support, supportDetails, pluginSlug),
+        body: getSupportTemplate(support, supportDetails),
       });
     }
   } catch (error) {
